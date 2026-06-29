@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "commonjs",
+  "scripts": {
+    "build": "echo Build concluido",
+    "vercel-build": "npm run build"
+  },
   "dependencies": {
     "routeros-client": "^1.1.0"
   }
