@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Starnet Digital | Hotspot</title>
+	<style>
+		:root {
+			--bg-main: #06090f;
+			--bg-card: rgba(18, 24, 36, 0.9);
+			--bg-soft: #121a2a;
+			--line: rgba(132, 153, 187, 0.25);
+			--text-main: #f4f7ff;
+			--text-soft: #b0bfdc;
+			--brand: #19d4a4;
+			--brand-strong: #10b58a;
+			--pix: #ffca4a;
+			--pix-strong: #e4ab1e;
+			--shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+			--radius-xl: 24px;
+			--radius-lg: 18px;
+			--radius-md: 12px;
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			min-height: 100vh;
+			font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+			color: var(--text-main);
+			background:
+				radial-gradient(circle at 15% -20%, #1f3b70 0%, transparent 45%),
+				radial-gradient(circle at 90% 0%, #0f644f 0%, transparent 40%),
+				linear-gradient(160deg, #05070c 0%, #090f18 48%, #0a111c 100%);
+			padding: 20px 16px 100px;
+		}
+
+		.container {
+			max-width: 420px;
+			margin: 0 auto;
+			display: grid;
+			gap: 16px;
+		}
+
+		.brand-card,
+		.login-card,
+		.pix-card {
+			background: var(--bg-card);
+			border: 1px solid var(--line);
+			border-radius: var(--radius-xl);
+			box-shadow: var(--shadow);
+			backdrop-filter: blur(8px);
+		}
+
+		.brand-card {
+			padding: 20px;
+		}
+
+		.logo {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			font-weight: 700;
+			letter-spacing: 0.3px;
+			margin-bottom: 10px;
+		}
+
+		.logo-image-wrap {
+			width: 52px;
+			height: 52px;
+			border-radius: 14px;
+			padding: 6px;
+			background: linear-gradient(145deg, rgba(13, 227, 175, 0.22), rgba(17, 184, 255, 0.22));
+			border: 1px solid rgba(109, 212, 255, 0.35);
+			display: grid;
+			place-items: center;
+		}
+
+		.logo-image {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			border-radius: 8px;
+		}
+
+		.logo-text {
+			font-size: 1.06rem;
+		}
+
+		.subtitle {
+			color: var(--text-soft);
+			line-height: 1.45;
+			font-size: 0.95rem;
+		}
+
+		.login-card {
+			padding: 22px 18px;
+		}
+
+		.title {
+			font-size: 1.1rem;
+			margin-bottom: 12px;
+		}
+
+		.form-group {
+			margin-top: 14px;
+		}
+
+		.form-group label {
+			display: block;
+			margin-bottom: 8px;
+			font-size: 0.93rem;
+			color: var(--text-soft);
+		}
+
+		.input {
+			width: 100%;
+			border: 1px solid var(--line);
+			background: var(--bg-soft);
+			color: var(--text-main);
+			border-radius: var(--radius-md);
+			padding: 15px 14px;
+			font-size: 1rem;
+			outline: none;
+			transition: border-color 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		.input:focus {
+			border-color: rgba(25, 212, 164, 0.7);
+			box-shadow: 0 0 0 3px rgba(25, 212, 164, 0.18);
+		}
+
+		.btn {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			text-decoration: none;
+			border: none;
+			border-radius: var(--radius-md);
+			cursor: pointer;
+			font-weight: 700;
+			font-size: 1rem;
+			padding: 16px;
+			transition: transform 0.15s ease, filter 0.2s ease;
+		}
+
+		.btn:active {
+			transform: translateY(1px);
+		}
+
+		.btn-login {
+			margin-top: 16px;
+			background: linear-gradient(130deg, var(--brand), #11c0f0);
+			color: #041018;
+			font-size: 1.05rem;
+			min-height: 58px;
+			letter-spacing: 0.2px;
+		}
+
+		.btn-login:hover {
+			filter: brightness(1.04);
+		}
+
+		.pix-card {
+			padding: 18px;
+			border-color: rgba(255, 202, 74, 0.4);
+			background: linear-gradient(140deg, rgba(255, 202, 74, 0.1), rgba(16, 23, 34, 0.9));
+		}
+
+		.pix-title {
+			font-size: 1rem;
+			margin-bottom: 8px;
+		}
+
+		.pix-text {
+			color: #ffe5a2;
+			font-size: 0.92rem;
+			line-height: 1.4;
+			margin-bottom: 14px;
+		}
+
+		.btn-pix {
+			background: linear-gradient(130deg, var(--pix), var(--pix-strong));
+			color: #211600;
+			min-height: 54px;
+		}
+
+		.wa-fixed {
+			position: fixed;
+			left: 16px;
+			right: 16px;
+			bottom: 14px;
+			max-width: 420px;
+			margin: 0 auto;
+			z-index: 30;
+		}
+
+		.btn-wa {
+			width: 100%;
+			border-radius: 999px;
+			background: #25d366;
+			color: #05200e;
+			min-height: 56px;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+		}
+
+		@media (min-width: 540px) {
+			body {
+				padding-top: 34px;
+			}
+
+			.brand-card,
+			.login-card,
+			.pix-card {
+				border-radius: 26px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main class="container">
+		<section class="brand-card">
+			<div class="logo">
+				<div class="logo-image-wrap">
+					<img class="logo-image" src="logo.jpeg" alt="Logo Starnet Digital">
+				</div>
+				<span class="logo-text">Starnet Digital</span>
+			</div>
+			<p class="subtitle">Conecte-se em segundos e aproveite internet rapida com estabilidade.</p>
+		</section>
+
+		<section class="login-card">
+			<h1 class="title">Acesso ao Hotspot</h1>
+			<form action="$(link-login-only)" method="post">
+				<input type="hidden" name="dst" value="$(link-orig)">
+				<input type="hidden" name="popup" value="true">
+
+				<div class="form-group">
+					<label for="username">Nome</label>
+					<input class="input" id="username" name="username" type="text" placeholder="Digite seu nome" autocomplete="name" required>
+				</div>
+
+				<button class="btn btn-login" type="submit">Acesso Gratis 5 min</button>
+			</form>
+		</section>
+
+		<section class="pix-card">
+			<h2 class="pix-title">Plano completo para 30 dias</h2>
+			<p class="pix-text">Liberacao imediata apos confirmacao via PIX.</p>
+			<a class="btn btn-pix" href="https://wa.me/5577981298986?text=Ola%2C%20quero%20contratar%20o%20plano%20PIX%2030%20dias" target="_blank" rel="noopener noreferrer">
+				Pagamento PIX 30 dias
+			</a>
+		</section>
+	</main>
+
+	<div class="wa-fixed">
+		<a class="btn btn-wa" href="https://wa.me/5577981298986?text=Ola%2C%20preciso%20de%20suporte%20no%20hotspot" target="_blank" rel="noopener noreferrer">
+			Suporte via WhatsApp
+		</a>
+	</div>
+</body>
+</html>

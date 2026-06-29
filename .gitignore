@@ -1,0 +1,6 @@
+.env
+Access Token.txt
+node_modules/
+.vercel/
+*.log
+~$*.xlsx

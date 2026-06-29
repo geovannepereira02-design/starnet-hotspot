@@ -1,0 +1,9 @@
+{
+  "name": "starnet-hotspot-automation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "routeros-client": "^1.1.0"
+  }
+}
